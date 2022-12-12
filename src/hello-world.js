@@ -1,7 +1,6 @@
 import HelloWorldButton from './components/hello-world-button/hello-world-button.js';
 import Heading from './components/heading/heading.js';
 import _ from 'lodash' // 70kb library -> use optimization chunk
-import React from 'react';
 // import addImage from './add-image.js';
 
 const heading = new Heading();

@@ -11,7 +11,7 @@ module.exports = {
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, './dist'),
-        publicPath: '',
+        publicPath: '/static/',
         // clean: {
         //     dry: true,
         //     keep: /\.css/
@@ -87,7 +87,7 @@ module.exports = {
             title: 'Hello World',
             template: 'src/page-template.hbs',
             description: 'Hello world',
-            minify: false // true by default for production
+            // minify: false // true by default for production
             // filename: 'subfolder/custom_filename.html',
         }),
         new HtmlWebpackPlugin({
@@ -96,7 +96,7 @@ module.exports = {
             title: 'Kiwi Image',
             template: 'src/page-template.hbs',
             description: 'Kiwi',
-            minify: false // true by default for production
+            // minify: false // true by default for production
             // filename: 'subfolder/custom_filename.html',
         })
     ]
