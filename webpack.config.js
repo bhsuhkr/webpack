@@ -2,13 +2,18 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
     output: {
         filename: 'bundle.[contenthash].js',
         path: path.resolve(__dirname, './dist'),
-        publicPath: 'dist/'
+        publicPath: '',
+        // clean: {
+        //     dry: true,
+        //     keep: /\.css/
+        // }
     },
     mode: 'none',
     module: {
@@ -56,6 +61,19 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'style.[contenthash].css'
         }),
-        new CleanWebpackPlugin()
+        // new CleanWebpackPlugin({
+        //     cleanOnceBeforeBuildPatterns: [
+        //         '**/*', // delete all files in the current directory (dist from output)
+        //         path.join(process.cwd(), 'build/**/*') 
+        //     ]
+        // }),
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            title: 'Hello World',
+            // filename: 'subfolder/custom_filename.html',
+            meta: {
+                description: 'Some description'
+            }
+        })
     ]
 };
