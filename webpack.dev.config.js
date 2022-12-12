@@ -16,6 +16,16 @@ module.exports = {
         // }
     },
     mode: 'development', // none, development, production 
+    devServer: {
+        port: 9000,
+        static: {
+            directory: path.resolve(__dirname, './dist'),
+        },
+        devMiddleware: {
+            index: 'index.html',
+            writeToDisk: true // write to dist folder
+        }
+    },
     module: {
         rules: [
             {
@@ -37,7 +47,7 @@ module.exports = {
                     'style-loader', 'css-loader' // MiniCssExtractPlugin.loader to style-loader
                 ]
             },
-            {
+        {
                 test:/\.scss$/,
                 use: [
                     'style-loader', 'css-loader', 'sass-loader' // MiniCssExtractPlugin.loader to style-loader
