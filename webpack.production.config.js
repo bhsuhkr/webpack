@@ -18,6 +18,11 @@ module.exports = {
         // }
     },
     mode: 'production', // none, development, production 
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
+    },
     module: {
         rules: [
             {
