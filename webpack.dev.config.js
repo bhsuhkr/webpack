@@ -10,7 +10,7 @@ module.exports = {
         'kiwi': './src/kiwi.js'
     },
     output: {
-        filename: '[name].js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, './dist'),
         publicPath: '',
         // clean: {
@@ -88,9 +88,19 @@ module.exports = {
         // }),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
+            filename: 'hello-world.html',
+            chunks: ['hello-world'],
             title: 'Hello World',
-            template: 'src/index.hbs',
-            description: 'Some description'
+            template: 'src/page-template.hbs',
+            description: 'Hello world'
+            // filename: 'subfolder/custom_filename.html',
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'kiwi.html',
+            chunks: ['kiwi'],
+            title: 'Hello World',
+            template: 'src/page-template.hbs',
+            description: 'Kiwi'
             // filename: 'subfolder/custom_filename.html',
         })
     ]
